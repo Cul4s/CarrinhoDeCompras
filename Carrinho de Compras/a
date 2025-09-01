@@ -1,0 +1,5 @@
+python manage.py migrate
+python manage.py makemigrations loja
+python manage.py sqlmigrate loja 0001
+
+python manage.py createsuperuser

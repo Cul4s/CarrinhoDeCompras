@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Olá {{ usuario }}.
+{% endblock %}
+
+{% block body %}
+    <h1>TESTE LOJA</h1>
+    <h2>{{ titulo }}</h2>
+
+    {% if lista %}
+        {% for produto in lista %}
+            <div>
+                <h3>{{ produto.nome }}</h3>
+                <p>Preço: R$ {{ produto.preco }}</p>
+                <a href="{% url 'adicionar_ao_carrinho' produto.id %}">Adicionar ao Carrinho</a>
+            </div>
+            <hr>
+        {% endfor %}
+    {% else %}
+        <p>Nenhum produto cadastrado.</p>
+    {% endif %}
+
+    <a href="{% url 'ver_carrinho' %}">Ver Carrinho</a>
+
+{% endblock %}
